@@ -48,6 +48,31 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Customer Quotes Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50">
+        <h2 className="text-3xl font-extrabold text-gray-900 text-center mb-12">
+          What Our Customers Say
+        </h2>
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {customerQuotes.map((quote, index) => (
+            <Card key={index} className="bg-white">
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <img src={quote.avatar} alt={quote.name} className="w-12 h-12 rounded-full mr-4 mx-auto object-cover" />
+                  <div>
+                    <p className="text-lg font-semibold">{quote.name}</p>
+                    <p className="text-sm text-gray-500">{quote.position}</p>
+                  </div>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 italic">"{quote.quote}"</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
       {/* Pricing Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <h2 className="text-3xl font-extrabold text-gray-900 text-center mb-12">
@@ -169,3 +194,24 @@ const pricingPlans = [
 ];
 
 export default Index;
+
+const customerQuotes = [
+  {
+    name: "Sarah Johnson",
+    position: "CEO, TechStart",
+    quote: "This SaaS platform has revolutionized how we manage our projects. It's intuitive, powerful, and has significantly boosted our team's productivity.",
+    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+  },
+  {
+    name: "Michael Chen",
+    position: "CTO, InnovateCorp",
+    quote: "The analytics dashboard provides invaluable insights into our workflow. It's helped us identify bottlenecks and optimize our processes.",
+    avatar: "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+  },
+  {
+    name: "Emily Rodriguez",
+    position: "Project Manager, DesignPro",
+    quote: "The collaboration features are top-notch. Our team can now work seamlessly across different time zones and projects.",
+    avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+  },
+];
